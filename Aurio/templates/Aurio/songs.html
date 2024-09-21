@@ -1,0 +1,84 @@
+{% extends 'Aurio/basic.html' %}
+{% block title %}All Songs{% endblock %}
+
+{% block body %}
+<div class="container">
+  {%for song in song%}
+  <div class="card mb-3" style="max-width: 540px; padding-top:2%;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="/media/{{song.image}}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title" style=" font-weight: 500;font-family: cursive;">{{song.name}}</h5>
+            <p class="card-text">{{song.tags}}</p>
+          <a href="/Aurio/songs/{{song.song_id}}"><button class="btn btn-outline-danger">Listen Song</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  {%endfor %}
+  </div>
+    
+<div class="container">
+  {%for song in tsong%}
+  <div class="card mb-3" style="max-width: 540px; padding-top:2%;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="/media/{{song.image}}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title" style=" font-weight: 500;font-family: cursive;">{{song.name}}</h5>
+            <p class="card-text">{{song.tags}}</p>
+          <a href="/Aurio/tsongs/{{song.song_id}}"><button class="btn btn-outline-danger">Listen Song</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  {%endfor %}
+  </div>
+
+  <div class="container">
+    {%for song in oldsong%}
+    <div class="card mb-3" style="max-width: 540px; padding-top:2%;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="/media/{{song.image}}" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title" style=" font-weight: 500;font-family: cursive;">{{song.name}}</h5>
+              <p class="card-text">{{song.tags}}</p>
+            <a href="/Aurio/oldsongs/{{song.song_id}}"><button class="btn btn-outline-danger">Listen Song</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {%endfor %}
+    </div>
+
+    <div class="container">
+      {%for song in usong%}
+      <div class="card mb-3" style="max-width: 540px; padding-top:2%;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="/media/{{song.image}}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title" style=" font-weight: 500;font-family: cursive;">{{song.name}}</h5>
+                <p class="card-text">{{song.tags}}</p>
+              <a href="/Aurio/usongs/{{song.song_id}}"><button class="btn btn-outline-danger">Listen Song</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {%endfor %}
+      </div>
+    
+{% endblock  %}
+
+
+

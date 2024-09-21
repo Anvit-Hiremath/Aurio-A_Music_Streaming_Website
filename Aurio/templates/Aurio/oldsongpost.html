@@ -1,0 +1,51 @@
+{% extends 'Aurio/basic.html' %}
+{% block title %}All Songs{% endblock %}
+
+{% block body %}
+
+{% if message%}
+<script>
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: '{{message}}',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    </script>
+{% endif %} 
+
+<div class="container">
+    <div class = "row">
+        <div class="col-md-6" style= "padding-top:3%;">
+            <img src = "/media/{{song.image}}" alt="" height="250px" width="250px"> 
+        </div>
+        <div class="col-md-6">
+            <h2 style="padding-top:6%; font-weight:600; font-family: 'Times New Roman';">Title:{{song.name}}</h2>
+            <h4 style="padding-top:1%; font-weight:600 ;">Category: {{song.tags}}</h4>
+            <h4 style="padding-top:0%; font-weight:600;">Movie: {{song.movie}}</h4>
+            <h4 style="padding-top:0%; font-weight:600;">Singer: {{song.singer}}</h4>
+            <audio controls controlsList="nodownload" preload="auto"style="padding-top: 2%">
+                <source src="/media/{{song.song}}" type="audio/mp3">
+              </audio>   
+              <div style="padding-top: 2%;">
+                <div class="row">
+                    <form action="/Aurio/watchlater" method="POST">{% csrf_token %}
+                    <input type="hidden" name="video_id" value="{{song.song_id}}">
+                    <button type="submit" class="btn btn-primary" id="submit_btn">Add to Listen Later</button>
+                </form>    
+                </div>
+                <div class="row">
+                        <a download href="/media/{{song.song}}" style="padding-left: 2%;padding-top: 10px;">
+                            <button class="btn btn-primary"style="padding-left: 28px; padding-left: 28px;">Download Song</button></a>
+                    </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+
+
+

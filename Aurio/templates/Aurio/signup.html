@@ -1,0 +1,41 @@
+{% extends 'Aurio/basic.html' %}
+{% block title %}SignUp{% endblock %}
+
+{% block body %}
+  <div class="container my-4">
+    <form method="POST" action="/Aurio/signup">{%csrf_token %}
+    <div class="mb-3" style="font-weight: 500;">
+        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email">
+      </div>
+
+      <div class="mb-3" style="font-weight: 500;">
+        <label for="exampleFormControlInput1" class="form-label">Username</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="username">
+      </div>
+
+      <div class="mb-3" style="font-weight: 500;">
+        <label for="exampleFormControlInput1" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="firstname">
+      </div>
+     
+      <div class="mb-3" style="font-weight: 500;">
+        <label for="exampleFormControlInput1" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" name="lastname">
+      </div>
+
+      <div class="mb-3" style="font-weight: 500;">
+        <label for="exampleFormControlInput1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleFormControlInput1" name="pass1">
+      </div>
+
+      <div class="mb-3" style="font-weight: 500;">
+        <label for="exampleFormControlInput1" class="form-label">Password (again) </label>
+        <input type="password" class="form-control" id="exampleFormControlInput1" name="pass2">
+      </div>
+      <div style="padding-top: 2%;">
+      <button type="submit" class="btn btn-primary">SignUp</button>
+      </div>
+    </form>  
+    </div>
+{% endblock %}
